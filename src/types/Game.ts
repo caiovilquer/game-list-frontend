@@ -7,6 +7,5 @@ export interface Game {
   score: number;
   imgUrl: string;
   shortDescription: string;
-  description: string;
   longDescription: string;
 }
