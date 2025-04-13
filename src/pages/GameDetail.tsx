@@ -23,7 +23,7 @@ export function GameDetail() {
       });
   }, [id]);
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) return <p className={styles.carregando}>Carregando...</p>;
   if (!game) return <p>Jogo não encontrado.</p>;
 
   return (

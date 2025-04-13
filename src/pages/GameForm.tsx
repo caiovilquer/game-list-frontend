@@ -71,7 +71,8 @@ export function GameForm() {
     }
   };
 
-  if (loading) return <p>Carregando gêneros...</p>;
+  if (loading)
+    return <p className={styles.carregando}>Carregando gêneros...</p>;
 
   return (
     <div className={styles.container}>

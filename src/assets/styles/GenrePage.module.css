@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .title {
+  font-family: 'Orbitron', 'Russo One', sans-serif;
   font-size: 2.2rem;
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 25px;
   text-align: center;
   border-bottom: 2px solid #5f9ea0;
@@ -80,12 +84,14 @@
 .gameTitle {
   margin: 0 0 8px 0;
   font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .gameDescription {
   margin: 0;
   color: #666;
   font-size: 0.9rem;
+  font-family: 'Montserrat', sans-serif;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -106,4 +112,14 @@
   .gameImage {
     margin-bottom: 10px;
   }
+}
+
+.carregando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
 }

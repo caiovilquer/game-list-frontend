@@ -12,12 +12,14 @@
 }
 
 .sectionTitle {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.8rem;
-  color: #fff;
+  color: #000000;
   margin: 0;
 }
 
 .addButton {
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   align-items: center;
   background: linear-gradient(135deg, #6eeafb, #0099cc);
@@ -45,6 +47,7 @@
 }
 
 .addText {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #fff;
 }
@@ -79,6 +82,7 @@
 }
 
 .gameTitle {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   margin-top: 0;
   margin-bottom: 10px;
@@ -94,6 +98,7 @@
 }
 
 .gameDescription {
+  font-family: 'Montserrat', sans-serif;
   color: #666;
   line-height: 1.5;
 }

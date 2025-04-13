@@ -63,7 +63,7 @@ export function RankingPage() {
     }
   };
 
-  if (loading) return <p>Carregando...</p>;
+  if (loading) return <p className={styles.carregando}>Carregando...</p>;
 
   return (
     <div className={`page-container ${styles.container}`}>
