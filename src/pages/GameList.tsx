@@ -2,6 +2,36 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import { Game } from "../types/Game";
 import { Link } from "react-router-dom";
+import { Genre } from "../types/Genre";
+
+export function GenreList() {
+  const [genre, setGenre] = useState<Genre[]>([]);
+
+  useEffect(() => {
+    api
+      .get<Genre[]>("/lists")
+      .then((response) => setGenre(response.data))
+      .catch((error) => console.error(error));
+  }, []);
+
+  return (
+    <div>
+      <h1>Lista de Jogos</h1>
+      <ul>
+        {genre.map((genre) => (
+          <button key={genre.id} style={{ marginBottom: "10px" }}>
+            <Link
+              to={`/generos/${genre.id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <h2>{genre.name}</h2>
+            </Link>
+          </button>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function GameList() {
   const [games, setGames] = useState<Game[]>([]);
@@ -15,12 +45,8 @@ export function GameList() {
 
   return (
     <div>
-      <h1>Lista de Jogos</h1>
       <Link to="/new">
         <button style={{ marginBottom: "20px" }}>Cadastrar Novo Jogo</button>
-      </Link>
-      <Link to="/ranking">
-        <button>Ver Ranking</button>
       </Link>
       <ul>
         {games.map((game) => (

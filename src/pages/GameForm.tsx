@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { Game } from "../types/Game";
+import { Genre } from "../types/Genre";
 
 // Interface para o gênero, conforme o retorno do endpoint GET /lists
-interface Genre {
-  id: number;
-  name: string;
-}
-
 export function GameForm() {
   const navigate = useNavigate();
 

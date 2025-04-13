@@ -8,23 +8,42 @@ import {
 } from "react-beautiful-dnd";
 import api from "../services/api";
 import { Game } from "../types/Game";
+import { Link, useParams } from "react-router-dom";
+import { Genre } from "../types/Genre";
 
 export function RankingPage() {
   const [games, setGames] = useState<Game[]>([]);
-  const listId = 1; // Exemplo: identificador da lista que está sendo trabalhada
+  const [genre, setGenre] = useState<string>("Carregando...");
+  const { id } = useParams();
 
   // Busca os jogos da lista, já ordenados pelo back-end (por posição)
   useEffect(() => {
     async function fetchGames() {
       try {
-        const response = await api.get<Game[]>(`/lists/${listId}/games`);
+        const response = await api.get<Game[]>(`/lists/${id}/games`);
         setGames(response.data);
       } catch (error) {
         console.error("Erro ao buscar os jogos:", error);
       }
     }
     fetchGames();
-  }, [listId]);
+  }, [id]);
+
+  useEffect(() => {
+    async function fetchGenre() {
+      if (!id) return;
+
+      try {
+        const response = await api.get<Genre[]>(`/lists`);
+        const foundGenre = response.data.find((g) => g.id === parseInt(id, 10));
+        setGenre(foundGenre?.name || "Gênero não encontrado");
+      } catch (error) {
+        console.error("Erro ao buscar detalhes do gênero:", error);
+        setGenre("Erro ao carregar gênero");
+      }
+    }
+    fetchGenre();
+  }, [id]);
 
   // Função chamada ao encerrar o drag-and-drop
   const handleDragEnd = async (result: DropResult) => {
@@ -43,7 +62,7 @@ export function RankingPage() {
 
     // Envia a atualização para o back-end, conforme a lógica de reposicionamento
     try {
-      await api.post(`/lists/${listId}/replacement`, {
+      await api.post(`/lists/${id}/replacement`, {
         sourceIndex: source.index,
         destinationIndex: destination.index,
       });
@@ -56,7 +75,7 @@ export function RankingPage() {
 
   return (
     <div>
-      <h1>Ranking de Jogos</h1>
+      <h1>{genre}</h1>
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="games">
           {(provided) => (
@@ -107,15 +126,20 @@ export function RankingPage() {
                       >
                         {index + 1}
                       </div>
-                      <img
-                        src={game.imgUrl}
-                        alt={game.title}
-                        style={{ width: "80px", marginRight: "16px" }}
-                      />
-                      <div>
-                        <h2 style={{ margin: 0 }}>{game.title}</h2>
-                        <p style={{ margin: 0 }}>{game.shortDescription}</p>
-                      </div>
+                      <Link
+                        to={`/games/${game.id}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <img
+                          src={game.imgUrl}
+                          alt={game.title}
+                          style={{ width: "80px", marginRight: "16px" }}
+                        />
+                        <div>
+                          <h2 style={{ margin: 0 }}>{game.title}</h2>
+                          <p style={{ margin: 0 }}>{game.shortDescription}</p>
+                        </div>
+                      </Link>
                     </li>
                   )}
                 </Draggable>
