@@ -21,11 +21,11 @@ export function GenreList() {
       <h1 className={genreStyles.title}>Lista de Jogos</h1>
       <ul className={genreStyles.genreList}>
         {genre.map((genre) => (
-          <button key={genre.id} className={genreStyles.genreButton}>
-            <Link to={`/generos/${genre.id}`} className={genreStyles.genreLink}>
+          <Link to={`/generos/${genre.id}`} className={genreStyles.genreLink}>
+            <button key={genre.id} className={genreStyles.genreButton}>
               <h2 className={genreStyles.genreName}>{genre.name}</h2>
-            </Link>
-          </button>
+            </button>
+          </Link>
         ))}
       </ul>
     </div>
