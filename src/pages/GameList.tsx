@@ -19,6 +19,9 @@ export function GameList() {
       <Link to="/new">
         <button style={{ marginBottom: "20px" }}>Cadastrar Novo Jogo</button>
       </Link>
+      <Link to="/ranking">
+        <button>Ver Ranking</button>
+      </Link>
       <ul>
         {games.map((game) => (
           <li key={game.id} style={{ marginBottom: "20px", listStyle: "none" }}>
