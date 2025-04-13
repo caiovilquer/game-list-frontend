@@ -4,7 +4,7 @@ import { GameDetail } from "./pages/GameDetail";
 import { GameForm } from "./pages/GameForm";
 import { RankingPage } from "./pages/GenrePage";
 import { GamesPage } from "./pages/GamesPage";
-
+import "./assets/styles/global.css";
 function App() {
   return (
     <BrowserRouter>

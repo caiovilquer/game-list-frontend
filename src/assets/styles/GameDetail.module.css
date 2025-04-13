@@ -1,0 +1,74 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gameHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #5f9ea0;
+  padding-bottom: 10px;
+}
+
+.imageContainer {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.gameImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.metadata {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.metaItem {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.label {
+  font-weight: bold;
+  color: #5f9ea0;
+}
+
+.score {
+  font-size: 1.2rem;
+  color: #e63946;
+  font-weight: bold;
+}
+
+.description {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  white-space: pre-line;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .gameHeader {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .imageContainer {
+    margin-right: 30px;
+    flex: 0 0 300px;
+  }
+}

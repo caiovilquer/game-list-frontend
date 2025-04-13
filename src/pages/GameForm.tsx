@@ -3,41 +3,39 @@ import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { Game } from "../types/Game";
 import { Genre } from "../types/Genre";
+import styles from "../assets/styles/GameForm.module.css";
 
-// Interface para o gênero, conforme o retorno do endpoint GET /lists
 export function GameForm() {
   const navigate = useNavigate();
-
-  // Estado para armazenar os gêneros obtidos via GET /lists
   const [genres, setGenres] = useState<Genre[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Carrega os gêneros ao montar o componente
   useEffect(() => {
     async function fetchGenres() {
       try {
         const response = await api.get<Genre[]>("/lists");
         setGenres(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Erro ao buscar gêneros:", error);
+        setLoading(false);
       }
     }
     fetchGenres();
   }, []);
 
-  // Estado do formulário com os campos atualizados
   const [formData, setFormData] = useState<Omit<Game, "id">>({
     title: "",
     genre: "",
     platform: "",
     year: new Date().getFullYear(),
     shortDescription: "",
-    longDescription: "", // Novo campo para long description
+    longDescription: "",
     imgUrl: "",
-    score: 0, // Novo campo para score
-    listId: 1, // ID da lista padrão
+    score: 0,
+    listId: 1,
   });
 
-  // Função para lidar com alterações nos inputs e selects
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -54,7 +52,6 @@ export function GameForm() {
     const selectedName = e.target.value;
     const selectedGenre = genres.find((g) => g.name === selectedName);
 
-    // Atualiza o estado com o nome e com o id correspondente, se encontrado
     setFormData((prev) => ({
       ...prev,
       genre: selectedName,
@@ -62,7 +59,6 @@ export function GameForm() {
     }));
   };
 
-  // Função de submissão do formulário
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -75,45 +71,32 @@ export function GameForm() {
     }
   };
 
+  if (loading) return <p>Carregando gêneros...</p>;
+
   return (
-    <div>
-      <h1>Cadastrar Novo Jogo</h1>
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column", maxWidth: "500px" }}
-      >
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>Título:</label>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Cadastrar Novo Jogo</h1>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Título:</label>
           <input
             type="text"
             name="title"
             value={formData.title}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.input}
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>Gênero:</label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Gênero:</label>
           <select
             name="genre"
             value={formData.genre}
             onChange={handleGenreChange}
             required
-            style={{ flex: 1 }}
+            className={styles.select}
           >
             <option value="" disabled>
               Selecione um gênero
@@ -126,124 +109,80 @@ export function GameForm() {
           </select>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>
-            Plataforma:
-          </label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Plataforma:</label>
           <input
             type="text"
             name="platform"
             value={formData.platform}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.input}
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>Ano:</label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Ano:</label>
           <input
             type="number"
             name="year"
             value={formData.year}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.input}
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>
-            Descrição curta:
-          </label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Descrição curta:</label>
           <textarea
             name="shortDescription"
             value={formData.shortDescription}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.textarea}
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>
-            Descrição longa:
-          </label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Descrição longa:</label>
           <textarea
             name="longDescription"
             value={formData.longDescription}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.textarea}
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>
-            URL da Imagem:
-          </label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>URL da Imagem:</label>
           <input
             type="text"
             name="imgUrl"
             value={formData.imgUrl}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.input}
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "10px",
-            alignItems: "center",
-          }}
-        >
-          <label style={{ width: "120px", marginRight: "10px" }}>Score:</label>
+        <div className={styles.formGroup}>
+          <label className={styles.label}>Score:</label>
           <input
             type="number"
             name="score"
+            min="0"
+            max="10"
+            step="0.1"
             value={formData.score}
             onChange={handleChange}
             required
-            style={{ flex: 1 }}
+            className={styles.input}
           />
         </div>
 
-        <button
-          type="submit"
-          style={{ marginTop: "10px", padding: "8px", alignSelf: "flex-end" }}
-        >
+        <button type="submit" className={styles.submitButton}>
           Cadastrar
         </button>
       </form>

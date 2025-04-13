@@ -1,0 +1,109 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid #5f9ea0;
+  padding-bottom: 10px;
+}
+
+.gamesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gameItem {
+  padding: 16px;
+  margin: 0 0 15px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.gameItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gameItemDragging {
+  background-color: #f0f8ff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0.8;
+}
+
+.rankNumber {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.gameLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  flex: 1;
+}
+
+.gameImage {
+  width: 171px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+.gameInfo {
+  flex: 1;
+}
+
+.gameTitle {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.gameDescription {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dragHandle {
+  color: #999;
+  cursor: grab;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .gameLink {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .gameImage {
+    margin-bottom: 10px;
+  }
+}
