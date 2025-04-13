@@ -64,6 +64,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(110, 234, 251, 0.3);
   height: 60px;
+  width: 100%;
 }
 
 .genreButton:hover {
