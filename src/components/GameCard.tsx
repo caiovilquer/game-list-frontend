@@ -8,7 +8,7 @@ interface GameCardProps {
 
 const GameCard: React.FC<GameCardProps> = ({ game }) => {
   // URL da imagem padrão caso não tenha uma
-  const defaultImageUrl = '/src/assets/images/default-game-cover.jpg';
+  const defaultImageUrl = '/images/default-game-cover.jpg';
   
   // Determina a cor do emblema baseado no gênero do jogo
   const getBadgeColor = (genre: string) => {

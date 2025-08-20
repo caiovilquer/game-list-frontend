@@ -8,7 +8,7 @@ const Header: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center mb-4 md:mb-0">
             <Link to="/" className="flex items-center">
-              <img src="/src/assets/icons/controller.svg" alt="Logo" className="h-10 w-10 mr-3 animate-pulse" />
+              <img src="/icons/controller.svg" alt="Logo" className="h-10 w-10 mr-3 animate-pulse" />
               <h1 className="font-title text-xl md:text-2xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-game-primary to-game-secondary">
                 GameList
               </h1>

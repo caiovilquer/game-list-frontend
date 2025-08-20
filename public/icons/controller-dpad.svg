@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill="#6d28d9" fill-rule="nonzero">
+            <path d="M22.5,8.76 L15.56,8.76 L15.56,1.5 C15.56,0.67 14.89,0 14.06,0 L9.94,0 C9.11,0 8.44,0.67 8.44,1.5 L8.44,8.76 L1.5,8.76 C0.67,8.76 0,9.43 0,10.26 L0,14.38 C0,15.21 0.67,15.88 1.5,15.88 L8.44,15.88 L8.44,22.5 C8.44,23.33 9.11,24 9.94,24 L14.06,24 C14.89,24 15.56,23.33 15.56,22.5 L15.56,15.88 L22.5,15.88 C23.33,15.88 24,15.21 24,14.38 L24,10.26 C24,9.43 23.33,8.76 22.5,8.76 Z" id="controller-d-pad"></path>
+        </g>
+    </g>
+</svg>

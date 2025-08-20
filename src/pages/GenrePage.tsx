@@ -90,7 +90,7 @@ export function RankingPage() {
         <div className="p-6">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-title text-game-accent glow-text flex items-center">
-              <img src="/src/assets/icons/trophy.svg" alt="Troféu" className="h-8 w-8 mr-3" />
+              <img src="/icons/trophy.svg" alt="Troféu" className="h-8 w-8 mr-3" />
               {genre}
             </h1>
             <div className="bg-gray-700 text-white text-xs font-medium px-3 py-1 rounded-full">
@@ -140,7 +140,7 @@ export function RankingPage() {
                             alt={game.title}
                             className="h-16 w-28 object-cover rounded mr-4"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = '/src/assets/images/default-game-cover.jpg';
+                              (e.target as HTMLImageElement).src = '/images/default-game-cover.jpg';
                             }}
                           />
                           <div className="overflow-hidden">

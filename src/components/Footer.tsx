@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link to="/" className="flex items-center">
-              <img src="/src/assets/icons/controller.svg" alt="Logo" className="h-8 w-8 mr-2" />
+              <img src="/icons/controller.svg" alt="Logo" className="h-8 w-8 mr-2" />
               <h3 className="font-title text-xl font-bold text-game-primary">GameList</h3>
             </Link>
             <p className="mt-3 text-gray-400 text-sm">

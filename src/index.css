@@ -8,7 +8,7 @@
 @layer base {
   body {
     @apply bg-game-dark text-game-light font-body;
-    background-image: url('/src/assets/bg-pattern.png');
+    background-image: url('/bg-pattern.png');
     background-repeat: repeat;
     background-size: 100px;
   }
@@ -49,7 +49,7 @@
     background-color: var(--color-game-dark);
     color: var(--color-game-light);
     font-family: "Exo 2", sans-serif;
-    background-image: url('/src/assets/bg-pattern.png');
+    background-image: url('/bg-pattern.png');
     background-repeat: repeat;
     background-size: 100px;
   }

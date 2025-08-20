@@ -48,7 +48,7 @@ export function GenreList() {
                 <h2 className="text-xl font-title text-game-accent">{genre.name}</h2>
                 <div className="bg-game-primary/20 p-2 rounded-full">
                   <img 
-                    src="/src/assets/icons/controller-dpad.svg" 
+                    src="/icons/controller-dpad.svg" 
                     alt="Controller" 
                     className="w-6 h-6"
                   />
@@ -142,7 +142,7 @@ export function GameList() {
       ) : (
         <div className="text-center py-12">
           <img 
-            src="/src/assets/icons/trophy.svg" 
+            src="/icons/trophy.svg" 
             alt="Sem resultados" 
             className="w-16 h-16 mx-auto mb-4 opacity-50"
           />

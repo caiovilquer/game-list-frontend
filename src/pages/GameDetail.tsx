@@ -7,7 +7,7 @@ export function GameDetail() {
   const { id } = useParams();
   const [game, setGame] = useState<Game | null>(null);
   const [loading, setLoading] = useState(true);
-  const defaultImageUrl = '/src/assets/images/default-game-cover.jpg';
+  const defaultImageUrl = '/images/default-game-cover.jpg';
 
   useEffect(() => {
     setLoading(true);
@@ -39,7 +39,7 @@ export function GameDetail() {
     return (
       <div className="text-center py-12">
         <img 
-          src="/src/assets/icons/controller.svg" 
+          src="/icons/controller.svg" 
           alt="Jogo não encontrado" 
           className="w-24 h-24 mx-auto mb-6 opacity-50"
         />
