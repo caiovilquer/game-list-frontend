@@ -1,0 +1,10 @@
+@layer base {
+  :root {
+    --color-game-primary: #6d28d9;
+    --color-game-secondary: #10b981;
+    --color-game-dark: #111827;
+    --color-game-light: #f3f4f6;
+    --color-game-accent: #f59e0b;
+    --color-game-danger: #ef4444;
+  }
+}
